@@ -7,6 +7,7 @@ using namespace::std;
 int main(){
     vector<int>V1={1,2,3,4,5};
     vector<int>V2={5,4,3,2,1};
+    vector<int>V3={9,4,6,2,8,1,3,5,7};
 
     int valor = 4;
 
@@ -15,7 +16,13 @@ int main(){
 
     cout<<"Posicion de 4 en el vector descendente:"<<BusquedaBinaria_INV(V2,valor,0,V2.size()-1)<<endl;
 
-
+    QuickSort(V3,0,V3.size()-1);
+    for (int i = 0; i < V3.size(); i++){
+    cout << V3[i] << " ";
+    }
+    cout<<endl;
     return 0;
+
+
 
 }
