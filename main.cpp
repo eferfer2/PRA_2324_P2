@@ -1,7 +1,18 @@
 #include <vector>
 #include "DyV.h"
 #include <iostream>
+#include <chrono>
 using namespace::std;
+
+ template<typename Func, typename T>
+void testTime(Func f, vector<T> v, const string& name) {
+    auto start = chrono::system_clock::now();
+    f(v, 0, v.size() - 1);
+    auto end = chrono::system_clock::now();
+    chrono::duration<float, std::milli> duration = end - start;
+
+    cout << name << " - Tiempo: " << duration.count() << " ms" << endl;
+}
 
 
 int main(){
@@ -21,6 +32,9 @@ int main(){
     cout << V3[i] << " ";
     }
     cout<<endl;
+    
+    testTime(QuickSort<int>, V3, "QuickSort Ultimo");
+    
     return 0;
 
 
